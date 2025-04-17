@@ -1,5 +1,7 @@
 package com.hackerearth.fullstack.backend.config;
 
+import java.util.Arrays;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,9 +11,6 @@ import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.servers.Server;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 @Configuration
 public class OpenAPIConfig {
 
@@ -20,7 +19,7 @@ public class OpenAPIConfig {
         Server localServer = new Server()
                 .url("http://localhost:8000")
                 .description("Local Development Server");
-                
+
         return new OpenAPI()
                 .info(new Info()
                         .title("DevFlowMetrics API")

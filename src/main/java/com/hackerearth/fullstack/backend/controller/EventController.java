@@ -48,13 +48,13 @@ public class EventController {
 
     @Operation(summary = "Create a new event", description = "Creates a new event associated with a repository")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "201", description = "Event created successfully", 
-                    content = @Content(schema = @Schema(implementation = EventResponse.class))),
+        @ApiResponse(responseCode = "201", description = "Event created successfully",
+                content = @Content(schema = @Schema(implementation = EventResponse.class))),
         @ApiResponse(responseCode = "400", description = "Invalid input data")
     })
     @PostMapping("${api.events-path}")
     public ResponseEntity<EventResponse> createEvent(
-            @Parameter(description = "Event data", required = true) 
+            @Parameter(description = "Event data", required = true)
             @RequestBody EventRequest eventRequest) {
         Optional<Repo> repoContainer = repoRepository.findById(eventRequest.getRepoId());
         Repo repo;
@@ -94,8 +94,8 @@ public class EventController {
 
     @Operation(summary = "Retrieve all events", description = "Fetches all events")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Events retrieved successfully", 
-                    content = @Content(schema = @Schema(implementation = EventResponse.class))),
+        @ApiResponse(responseCode = "200", description = "Events retrieved successfully",
+                content = @Content(schema = @Schema(implementation = EventResponse.class))),
         @ApiResponse(responseCode = "404", description = "No events found")
     })
     @GetMapping("${api.events-path}")
@@ -116,13 +116,13 @@ public class EventController {
 
     @Operation(summary = "Retrieve events for a repository", description = "Fetches all events associated with a specific repository")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Events retrieved successfully", 
-                    content = @Content(schema = @Schema(implementation = EventResponse.class))),
+        @ApiResponse(responseCode = "200", description = "Events retrieved successfully",
+                content = @Content(schema = @Schema(implementation = EventResponse.class))),
         @ApiResponse(responseCode = "404", description = "Repository not found")
     })
     @GetMapping("${api.repos-path}/{repoId}/events")
     public ResponseEntity<Iterable<EventResponse>> getEventsForRepo(
-            @Parameter(description = "Repository ID", required = true) 
+            @Parameter(description = "Repository ID", required = true)
             @PathVariable long repoId) throws CustomException {
         List<EventResponse> list = new ArrayList<>();
         Optional<Repo> optionalRepo = repoRepository.findById(repoId);
@@ -144,13 +144,13 @@ public class EventController {
 
     @Operation(summary = "Retrieve a specific event", description = "Fetches details of a specific event by its ID")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Event retrieved successfully", 
-                    content = @Content(schema = @Schema(implementation = EventResponse.class))),
+        @ApiResponse(responseCode = "200", description = "Event retrieved successfully",
+                content = @Content(schema = @Schema(implementation = EventResponse.class))),
         @ApiResponse(responseCode = "404", description = "Event not found")
     })
     @GetMapping("${api.events-path}/{eventId}")
     public ResponseEntity<EventResponse> getEvent(
-            @Parameter(description = "Event ID", required = true) 
+            @Parameter(description = "Event ID", required = true)
             @PathVariable long eventId) throws CustomException {
         Optional<Event> eventContainer = eventRepository.findById(eventId);
         if (!eventContainer.isPresent()) {
