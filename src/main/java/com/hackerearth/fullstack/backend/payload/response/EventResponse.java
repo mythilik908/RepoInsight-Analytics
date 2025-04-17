@@ -1,5 +1,7 @@
 package com.hackerearth.fullstack.backend.payload.response;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -7,14 +9,25 @@ import javax.persistence.Id;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class EventResponse {
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Id
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
     public int id;
     public String type;
     public int repoId;
     public int actorId;
+    public LocalDateTime timestamp;
+
     @JsonProperty("public")
     public boolean isPublic;
+
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
+    }
 
     public int getId() {
         return id;
@@ -58,10 +71,27 @@ public class EventResponse {
 
     @Override
     public boolean equals(Object obj) {
-        EventResponse et=(EventResponse) obj;
-        return et.getActorId()==getActorId()&&
-                et.getType().equals(getType())&&
-                et.getRepoId()==et.getRepoId()&&
-                et.isPublic()==isPublic();
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        EventResponse that = (EventResponse) obj;
+        return actorId == that.actorId
+                && repoId == that.repoId
+                && isPublic == that.isPublic
+                && (type != null ? type.equals(that.type) : that.type == null);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (type != null ? type.hashCode() : 0);
+        result = 31 * result + repoId;
+        result = 31 * result + actorId;
+        result = 31 * result + (isPublic ? 1 : 0);
+        return result;
     }
 }

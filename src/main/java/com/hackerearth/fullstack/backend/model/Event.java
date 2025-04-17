@@ -1,22 +1,38 @@
 package com.hackerearth.fullstack.backend.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.time.LocalDateTime;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 public class Event {
+
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private long id;
     private String type;
     private boolean isPublic;
+    private LocalDateTime timestamp;
 
     @JsonProperty("repoId")
     @ManyToOne(fetch = FetchType.EAGER)
     private Repo repo;
     private long actorId;
+
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
+    }
 
     public long getActorId() {
         return actorId;

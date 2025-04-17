@@ -1,11 +1,12 @@
 package com.hackerearth.fullstack.backend.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Repo {
@@ -13,7 +14,7 @@ public class Repo {
     @Id
     private long id;
 
-    @OneToMany(mappedBy="repo",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "repo", fetch = FetchType.EAGER)
     private List<Event> events = new ArrayList<>();
 
     public Repo(long id, List<Event> events) {
