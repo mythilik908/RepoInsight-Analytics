@@ -1,4 +1,4 @@
-# Event Tracking & Analytics System
+# Repo Insight Analytics System
 
 A Spring Boot service for capturing and analyzing repository events to help teams monitor activity, uncover workflow patterns, and spot bottlenecks through actionable metrics.
 
