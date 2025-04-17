@@ -70,7 +70,3 @@ A Spring Boot service for capturing and analyzing repository events to help team
   Use data‑driven insights to streamline pipelines.
 
 ---
-
-- Java 8 or higher  
-- Maven or Gradle  
-- (Optional) Docker & Docker Compose  
