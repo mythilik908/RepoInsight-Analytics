@@ -9,24 +9,6 @@
 
 A Spring Boot service for capturing and analyzing repository events to help teams monitor activity, uncover workflow patterns, and spot bottlenecks through actionable metrics.
 
-## 🚀 Quick Start
-
-```bash
-# Clone the repository
-git clone https://github.com/mythilik908/repo-insight-analytics-system.git
-
-# Navigate to the project directory
-cd repo-insight-analytics-system
-
-# Build the project
-mvn clean install
-
-# Run the application
-mvn spring-boot:run
-```
-
-Once running, the API will be available at `http://localhost:8080` and the OpenAPI documentation at `http://localhost:8080/swagger-ui.html`.
-
 ## ✨ Features
 
 - **📊 Event Tracking**  
