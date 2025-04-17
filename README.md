@@ -34,7 +34,7 @@ A Spring Boot service for capturing and analyzing repository events to help team
 - **Documentation:** SpringDoc OpenAPI
 - **Build Tool:** Maven
 - **Development:** Lombok, Spring DevTools
-- **Quality Assurance:** JUnit, CheckStyle
+- **Quality Assurance:** JUnit
 
 ## 📡 API Endpoints
 
