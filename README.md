@@ -4,7 +4,6 @@
   <img src="https://img.shields.io/badge/version-0.0.1--SNAPSHOT-blue" alt="Version">
   <img src="https://img.shields.io/badge/java-8+-orange" alt="Java version">
   <img src="https://img.shields.io/badge/spring--boot-2.7.18-brightgreen" alt="Spring Boot version">
-  <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
 </p>
 
 A Spring Boot service for capturing and analyzing repository events to help teams monitor activity, uncover workflow patterns, and spot bottlenecks through actionable metrics.
